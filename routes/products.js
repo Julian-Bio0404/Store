@@ -14,12 +14,12 @@ router.get('/', (req, res) => {
       image: faker.image.imageUrl(),
     });
   }
-  res.json(products);
+  res.status(200).json(products);
 });
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  res.json({
+  res.status(200).json({
     id,
     name: 'Product ' + id,
     price: 1000
@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   const body = req.body;
-  res.json({
+  res.status(201).json({
     message: 'created',
     data: body
   });
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
 router.patch('/:id', (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  res.json({
+  res.status(200).json({
     message: 'update',
     data: body,
     id
